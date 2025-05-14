@@ -5,4 +5,4 @@ Els requeriments de hardware en quant a GPU son els següents, per lo que no ser
 - Recommended: NVIDIA RTX 3090 (24GB VRAM)
 - Optimal: 2x NVIDIA A100 (80GB VRAM)
 
-Per això he decidit utilitzar una IA més lleugera com [0x-lite](https://huggingface.co/ozone-research/0x-lite)
+Per això he decidit utilitzar la versió més lleugera de [GPT2](https://huggingface.co/openai-community/gpt2)
