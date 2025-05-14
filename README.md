@@ -5,4 +5,8 @@ Els requeriments de hardware en quant a GPU son els següents, per lo que no ser
 - Recommended: NVIDIA RTX 3090 (24GB VRAM)
 - Optimal: 2x NVIDIA A100 (80GB VRAM)
 
-Per això he decidit utilitzar la versió més lleugera de [GPT2](https://huggingface.co/openai-community/gpt2)
+Per això he decidit utilitzar la versió més lleugera de [GPT2](https://huggingface.co/openai-community/gpt2), pero al ser un mòdel bastant lleuger no està entrenat per aquesta classe de tasques, per lo que retorna un missatge sense cap sentit
+
+![imagen](https://github.com/user-attachments/assets/dfa80d1c-403c-482f-8b2d-d1a1dc1139bd)
+
+La solució seria probarlo en un equip en una gràfica dedicada amb suficient potencia per a poder executar aquest tipus de inteligencies artificials sense problemes
