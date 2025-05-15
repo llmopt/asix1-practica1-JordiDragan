@@ -35,9 +35,8 @@ L'hi he demanat que analitze el log d'Apache y m'ha donat el següent resultat:
 ## Diferències entre utilitzar l'API i descarregar el model
 | Característica                    | API de Hugging Face                                                | Model local                                                 |
 |-----------------------------------|--------------------------------------------------------------------|-------------------------------------------------------------|
-| **Facilitat d’ús**                | Molt fàcil, només cal una token                                    | Requereix instal·lar dependències i el mòdel                |
+| **Facilitat d’ús**                | Molt fàcil, només cal un token                                     | Requereix instal·lar dependències i el mòdel                |
 | **Requisits de maquinari**        | Connexió a la xarxa                                                | Una GPU dedicada, minim de la serie 3000 de NVIDIA o similar|
 | **Velocitat de resposta**         | Pot ser més lenta per la latència de xarxa o depenent del servidor | Depenent dels recursos de la màquina                        |
 | **Cost**                          | Pot tenir cost segons l’ús                                         | Gratuït                                                     |
-| **Actualitzacions del model**     | Sempre s’utilitza la versió més recent                             | Cal descarregar i actualitzar manualment                    |
 | **Personalització**               | Limitat al que ofereix l’API                                       | Totalment personalitzable (fine-tuning, temperature, etc.)  |
