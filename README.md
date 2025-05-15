@@ -1,6 +1,8 @@
 ## Paraules claus
-**RAG:** També conegut com Retrieval-Augmented Generation, es una tècnica que millora la qualitat del LLM permitint aprofitar recursos de dades adicionals sense necessitat de tornar a entrenar-los
-**Fine-tuned:** Es el procès d'agafar un model ja entrenat i ajustar-lo per adaptarlo a fer tasques més especifiques
+**RAG:** També conegut com Retrieval-Augmented Generation, es una tècnica que millora la qualitat del LLM permitint aprofitar recursos de dades adicionals sense necessitat de tornar a entrenar-los  
+
+**Fine-tuned:** Es el procès d'agafar un model ja entrenat i ajustar-lo per adaptarlo a fer tasques més especifiques  
+
 **Temperature:** Es un parametre per ajustar la longitud de la sortida del LLM
 
 ## Abans de provar la IA
