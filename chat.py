@@ -1,46 +1,25 @@
-from transformers import AutoModelForCausalLM, AutoTokenizer
-import re
+from huggingface_hub import InferenceClient
 
-# Load the model and token  izer from Hugging Face
-model_name = "mistral-7b-instruct"  # Replace with an equivalent model if not available
-tokenizer = AutoTokenizer.from_pretrained(model_name)
-model = AutoModelForCausalLM.from_pretrained(model_name)
+client = InferenceClient(
+    provider="hf-inference",
+    api_key="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",
+)
 
-def parse_apache_logs(log_file):
-    """
-    Reads and processes Apache logs.
-    """
-    with open(log_file, 'r') as file:
-        logs = file.readlines()
+# Leer el contenido de apache_logs.txt
+with open("apache_logs.txt", "r", encoding="utf-8") as f:
+    logs_content = f.read()
 
-    # Example regex to process Apache logs
-    log_pattern = r'(?P<ip>\d+\.\d+\.\d+\.\d+) - - \[(?P<date>.*?)\] "(?P<request>.*?)" (?P<status>\d+) (?P<size>\d+|-)'
-    parsed_logs = [re.match(log_pattern, log).groupdict() for log in logs if re.match(log_pattern, log)]
-    return parsed_logs
+# Puedes ajustar el prompt según el análisis que desees
+prompt = f"Analiza el siguiente log de Apache:\n\n{logs_content}"
 
-def interpret_logs_with_model(parsed_logs):
-    """
-    Uses the model to interpret the processed logs.
-    """
-    interpretations = []
-    for log in parsed_logs:
-        input_text = f"Interpret this Apache log entry: {log}"
-        inputs = tokenizer(input_text, return_tensors="pt")
-        outputs = model.generate(**inputs, max_length=100)
-        interpretation = tokenizer.decode(outputs[0], skip_special_tokens=True)
-        interpretations.append(interpretation)
-    return interpretations
+completion = client.chat.completions.create(
+    model="mistralai/Mistral-7B-Instruct-v0.3",
+    messages=[
+        {
+            "role": "user",
+            "content": prompt
+        }
+    ],
+)
 
-if __name__ == "__main__":
-    # Path to the Apache log file
-    log_file = "apache_logs.txt"  # Replace with the correct path
-
-    # Process and interpret the logs
-    parsed_logs = parse_apache_logs(log_file)
-    interpretations = interpret_logs_with_model(parsed_logs)
-
-    # Display the results
-    for log, interpretation in zip(parsed_logs, interpretations):
-        print(f"Log: {log}")
-        print(f"Interpretation: {interpretation}")
-        print("-" * 50)
+print(completion.choices[0].message)
